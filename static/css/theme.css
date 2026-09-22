@@ -1,0 +1,135 @@
+/* 大地色系 極簡方格主題 */
+:root {
+    --earth-bg: #f3ede3;
+    --earth-surface: #fbf8f2;
+    --earth-primary: #8a6d4b;
+    --earth-primary-dark: #6b5237;
+    --earth-secondary: #a9927d;
+    --earth-accent: #7c8a68;
+    --earth-text: #4a3f35;
+    --earth-border: #ddd0bd;
+}
+
+body {
+    background-color: var(--earth-bg);
+    color: var(--earth-text);
+    font-family: "Segoe UI", "Microsoft JhengHei", sans-serif;
+}
+
+a {
+    color: var(--earth-primary);
+}
+a:hover {
+    color: var(--earth-primary-dark);
+}
+
+.page-header {
+    text-align: center;
+    padding: 24px 16px;
+    margin-bottom: 24px;
+    background-color: var(--earth-surface);
+    border-bottom: 1px solid var(--earth-border);
+}
+.page-header h1 {
+    font-size: 1.75rem;
+    color: var(--earth-primary-dark);
+    margin-bottom: 8px;
+}
+.page-nav a {
+    margin: 0 8px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* 極簡方格卡片 */
+.grid-card {
+    background-color: var(--earth-surface);
+    border: 1px solid var(--earth-border);
+    border-radius: 4px;
+    padding: 24px;
+}
+
+.form-control {
+    border: 1px solid var(--earth-border);
+    background-color: #fff;
+}
+.form-control:focus {
+    border-color: var(--earth-primary);
+    box-shadow: 0 0 0 0.2rem rgba(138, 109, 75, 0.25);
+}
+.form-control:disabled {
+    background-color: var(--earth-bg);
+    color: var(--earth-text);
+    text-align: center;
+    font-weight: 600;
+}
+
+.btn-earth {
+    background-color: var(--earth-primary);
+    border-color: var(--earth-primary);
+    color: #fff;
+}
+.btn-earth:hover {
+    background-color: var(--earth-primary-dark);
+    border-color: var(--earth-primary-dark);
+    color: #fff;
+}
+.btn-earth-outline {
+    background-color: transparent;
+    border-color: var(--earth-secondary);
+    color: var(--earth-text);
+}
+.btn-earth-outline:hover {
+    background-color: var(--earth-secondary);
+    color: #fff;
+}
+
+/* 極簡方格資訊面板 */
+.info-tile {
+    border: 1px solid var(--earth-border);
+    background-color: var(--earth-surface);
+    border-radius: 4px;
+    padding: 16px;
+    text-align: center;
+}
+.info-tile label {
+    display: block;
+    color: var(--earth-secondary);
+    font-size: 0.85rem;
+    margin-bottom: 6px;
+}
+
+.panel_time {
+    display: inline-block;
+    padding: 4px 14px;
+    background-color: var(--earth-accent);
+    color: #fff;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+.earth-table {
+    background-color: var(--earth-surface);
+    border: 1px solid var(--earth-border);
+}
+.earth-table th {
+    background-color: var(--earth-primary);
+    color: #fff;
+    font-weight: 500;
+    border-color: var(--earth-border) !important;
+}
+.earth-table td, .earth-table th {
+    vertical-align: middle;
+    border-color: var(--earth-border) !important;
+}
+.earth-table tbody tr:nth-of-type(odd) {
+    background-color: rgba(169, 146, 125, 0.08);
+}
+
+footer.site-footer {
+    text-align: center;
+    padding: 16px;
+    margin-top: 32px;
+    color: var(--earth-secondary);
+    font-size: 0.85rem;
+}

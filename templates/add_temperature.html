@@ -6,52 +6,51 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
-    <title>Document</title>
-    <style>
-        .head {
-            text-align: center;
-            margin-bottom: 20px;
-            margin-top: 20px;
-        }
-        .content {
-            margin-left: 50px;
-            margin-right: 50px;
-        }
-    </style>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/theme.css' %}">
+    <title>新增溫溼度</title>
 </head>
 <body>
-   <div class="head">
+   <div class="page-header">
     <h1>新增溫溼度頁面</h1>
-    <h3><a href="{% url 'view_history_temperature' %}">溫溼度歷史</a></h3>    
+    <div class="page-nav">
+        <a href="{% url 'view_history_temperature' %}">溫溼度歷史</a>
+    </div>
    </div>
-   <div class="content">
-    <form action="{% url 'add_temperature' %}" method="post"> 
-        {% csrf_token%}
-        <div class="form-group row">
-            <label for="inputEmail3" class="col-sm-2 col-form-label">Sensor ID</label>
-            <div class="col-sm-10">
-            <input type="text" class="form-control" id="sensor_id" name="sensor_id" required>
+   <div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="grid-card">
+                <form action="{% url 'add_temperature' %}" method="post">
+                    {% csrf_token%}
+                    <div class="form-group row">
+                        <label for="sensor_id" class="col-sm-3 col-form-label">Sensor ID</label>
+                        <div class="col-sm-9">
+                        <input type="text" class="form-control" id="sensor_id" name="sensor_id" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="temperature" class="col-sm-3 col-form-label">溫度</label>
+                        <div class="col-sm-9">
+                        <input type="text" class="form-control" id="temperature" name="temperature" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="humidity" class="col-sm-3 col-form-label">濕度</label>
+                        <div class="col-sm-9">
+                        <input type="text" class="form-control" id="humidity" name="humidity" required>
+                        </div>
+                    </div>
+                    <div class="form-group row mb-0">
+                        <div class="col-sm-9 offset-sm-3">
+                        <button type="submit" class="btn btn-earth">新增</button>
+                        <button type="reset" class="btn btn-earth-outline">取消</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
-        <div class="form-group row">
-            <label for="temperature" class="col-sm-2 col-form-label">溫度</label>
-            <div class="col-sm-10">
-            <input type="text" class="form-control" id="temperature" name="temperature" required>
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="humidity" class="col-sm-2 col-form-label">濕度</label>
-            <div class="col-sm-10">
-            <input type="text" class="form-control" id="humidity" name="humidity" required>
-            </div>
-        </div>
-        <div class="form-group row">
-            <div class="col-sm-10">
-            <button type="submit" class="btn btn-primary">新增</button>
-            <button type="reset" class="btn btn-primary">取消</button>
-            </div>
-        </div>
-    </form>
-   </div>  
+    </div>
+   </div>
 </body>
 </html>
