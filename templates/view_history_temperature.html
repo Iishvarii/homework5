@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .head {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .table {
+            margin-top: 30px;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="head">
+        <h1>History of Temperature</h1>
+        <h3><a href="{% url 'add_temperature' %}">新增溫溼度</a></h3>
+        <h3><a href="{% url 'show_temperature1' %}">顯示目前溫濕度</a></h3>
+        <h3><a href="{% url 'show_temperature2' %}">顯示歷史溫濕度</a></h3>
+    </div>
+    <div>
+        <table class="table">
+            <tr>
+                <th>id</th>
+                <th>sensor id</th>
+                <th>溫度</th>
+                <th>濕度</th>
+                <th>時間</th>
+            </tr>
+
+            {% for data in resultList %}
+            <tr>
+                <td>{{ data.myid }}</td>
+                <td>{{ data.sensor_id }}</td>
+                <td>{{ data.temperature }}</td>
+                <td>{{ data.humidity }}</td>
+                
+                {% comment %} 更改時域:台北時間 {% endcomment %}
+                {% load tz %}
+                {% timezone "Asia/Taipei" %}
+                <td>{{ data.timestamp | date:"Y-m-d H:i:s" }}</td>
+                {% endtimezone %}
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+</body>
+</html>
